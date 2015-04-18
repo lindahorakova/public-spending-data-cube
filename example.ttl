@@ -1,0 +1,161 @@
+@prefix rdfs:			<http://www.w3.org/2000/01/rdf-schema#>	.
+@prefix rdf:			<http://www.w3.org/1999/02/22-rdf-syntax-ns#>	.
+@prefix qb:				<http://purl.org/linked-data/cube#>	.
+@prefix psnet:			<http://publicspending.net/ontology#> .
+@prefix xsd: 			<http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: 			<http://www.w3.org/2002/07/owl#> .
+@prefix sdmx-attribute:	<http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-measure: 	<http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix test:			<https://raw.githubusercontent.com/lindahorakova/dcv-public-spending/master/example.ttl#>	.
+@prefix skos:			<http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:      		<http://purl.org/dc/terms/> .
+@prefix foaf:			<http://xmlns.com/foaf/0.1/> .
+
+
+<https://raw.githubusercontent.com/lindahorakova/dcv-public-spending/master/example.ttl#>
+	rdf:type owl:Ontology;
+	dct:creator 	"Linda Horakova"^^xsd:string;
+	dct:date		"2015-04-10"^^xsd:date;
+	dct:description "Ontology describes payments between payers and payees in public spending"^^xsd:string;
+	.
+
+# Dataset
+
+test:Dataset a qb:DataSet;
+	rdfs:label		"Platby mezi platci a prijemci v oblasti verejnych vydaju"@cs;
+	rdfs:label		"Payments between payers and payees in public spending"@en;
+	dct:title		"Payments between payers and peyess in public spending";
+	dct:description	"Dataset contains data about public spending payments, including information about payers, payees, amount, currency, date and CPV code."@en;
+	rdfs:comment	"Dataset contains data about public spending payments, including information about payers, payees, amount, currency, date and CPV code."@en;
+	dct:issued		"2015-04-18"^^xsd:date;
+	dct:modified	"2015-04-18"^^xsd:date;
+	dct:subject		"Payments between payers and payees"^^xsd:string;
+	dct:publisher	"Linda Horakova"^^xsd:string;
+	qb:structure test:DSD;
+	.
+
+# Data Structure Definition
+
+test:DSD a qb:DataStructureDefinition;
+	rdfs:label "Definice datove struktury pro dataset - Platby mezi platci a prijemci v oblasti verejnych vydaju"@cs;
+	rdfs:label "Definition of data structure for dataset - Payments between payers and payees in public spending"@en;
+	qb:component	test:payerComponent, 
+					test:payeeComponent, 
+    				test:dateComponent,
+    				test:cpvComponent,
+    				test:AmountComponent,
+    				test:currencyComponent;
+    .
+
+test:payerComponent a qb:ComponentSpecification;
+	qb:dimension test:payer;	
+	qb:order 1; 
+	.
+
+test:payeeComponent a qb:ComponentSpecification;
+	qb:dimension test:payee;	
+	qb:order 2; 
+	.
+  
+test:dateComponent a qb:ComponentSpecification;
+ 	qb:dimension test:date;	
+ 	qb:order 3;
+ 	.
+    
+test:cpvComponent a qb:ComponentSpecification;
+ 	qb:dimension test:cpv;		
+ 	qb:order 4;
+ 	.
+ 
+test:AmountComponent a qb:ComponentSpecification; 
+	qb:measure test:amount .                        
+
+test:currencyComponent a qb:ComponentSpecification;
+	qb:attribute sdmx-attribute:currency;
+	qb:componentAttachment test:AmountComponent;
+	.
+
+
+# Dimensions, measures		
+	
+test:payer a rdf:Property, qb:DimensionProperty;
+	rdfs:label "Platce"@cs;
+	rdfs:label "Payer"@en;
+    rdfs:subPropertyOf psnet:payer;
+    rdfs:domain qb:Observation;
+    rdfs:range test:PaymentAgent;
+    .
+
+test:payee a rdf:Property, qb:DimensionProperty;
+	rdfs:label "Prijemce"@cs;
+	rdfs:label "Payee"@en;
+    rdfs:subPropertyOf psnet:payee;
+    rdfs:domain qb:Observation;
+    rdfs:range test:PaymentAgent;
+    .
+    
+test:date a owl:DatatypeProperty, qb:DimensionProperty;
+	rdfs:label "Datum platby"@cs;
+	rdfs:label "Date"@en;
+	rdfs:subPropertyOf sdmx-dimension:refTime;
+	rdfs:domain qb:Observation;
+	rdfs:range xsd:date;
+	.    
+
+test:cpv	a owl:DatatypeProperty, qb:DimensionProperty;
+	rdfs:label "Common Procurement Vocabulary";
+	rdfs:label "Spolecny slovnik pro verejne zakazky";
+	rdfs:subPropertyOf psnet:cpv;
+	rdfs:domain qb:Observation;
+	qb:codeList <http://purl.org/cpv/2008/>;
+	rdfs:range skos:Concept;
+	.    
+    
+test:amount a rdf:Property, qb:MeasureProperty;
+	rdfs:label "Penezni castka"@cs;
+	rdfs:label "Amount of money"@en;
+	rdfs:subPropertyOf sdmx-measure:obsValue;
+    rdfs:range xsd:decimal;
+    .
+
+# Classes
+	
+test:PaymentAgent a rdfs:Class;
+	rdfs:label "Payment Agent"@en;
+	rdfs:label "Ucastnik platby"@cs;
+	rdfs:subClassOf psnet:PaymentAgent;
+	rdfs:subClassOf foaf:Agent;
+	.
+	
+# Test observations
+
+test:o1 a qb:Observation;
+    qb:dataSet test:Dataset;
+    test:amount 			1266.45;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/USD>;
+    test:payer 				<http://publicspending.medialab.ntua.gr/resource/alaska/organizations/57000>;
+    test:payee 				<http://publicspending.medialab.ntua.gr/resource/alaska/payees/CITY_OF_PALMER>;
+	test:date				"2013-04-20";
+	test:cpv				<http://purl.org/cpv/2008/code-15555000>;
+    .
+
+test:o2 a qb:Observation;
+	qb:dataSet test:Dataset;
+    test:amount 			1766.45;
+    sdmx-attribute:currency <http://ecb.270a.info/code/1.0/CL_CURRENCY/USD>;
+    test:payer 				<http://publicspending.medialab.ntua.gr/resource/alaska/organizations/57000>;
+    test:payee 				<http://publicspending.medialab.ntua.gr/resource/alaska/payees/CITY_OF_PETERSBURG>;
+    test:date				"2003-02-03";
+    test:cpv				<http://purl.org/cpv/2008/code-35511100-0>;
+	.
+
+test:o3 a qb:Observation;
+	qb:dataSet test:Dataset;
+    test:amount 			2130.5;
+    sdmx-attribute:currency <http://ecb.270a.info/code/1.0/CL_CURRENCY/USD>;
+    test:payer 				<http://publicspending.medialab.ntua.gr/resource/alaska/organizations/29000>;
+    test:payee 				<http://publicspending.medialab.ntua.gr/resource/alaska/payees/CITY_OF_PELICAN>;
+    test:date				"2013-06-03";
+    test:cpv				<http://purl.org/cpv/2008/code-03419000>;
+	.	
