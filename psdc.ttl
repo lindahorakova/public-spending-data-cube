@@ -73,7 +73,6 @@ psdc:AmountComponent a qb:ComponentSpecification;
 
 psdc:currencyComponent a qb:ComponentSpecification;
 	qb:attribute sdmx-attribute:currency;
-	qb:componentAttachment psdc:amount;
 	.
 
 
