@@ -63,7 +63,8 @@ psdc:cpvComponent a qb:ComponentSpecification;
  qb:order 4 .
  
 psdc:AmountComponent a qb:ComponentSpecification; 
-	qb:measure psdc:amount .                        
+	qb:measure psdc:amount;
+	qb:componentAttachement psdc:currencyComponent .                        
 
 psdc:currencyComponent a qb:ComponentSpecification;
 		qb:attribute sdmx-attribute:currency .
