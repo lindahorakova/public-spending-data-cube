@@ -7,13 +7,13 @@
 @prefix sdmx-attribute:	<http://purl.org/linked-data/sdmx/2009/attribute#> .
 @prefix sdmx-measure: 	<http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
-@prefix psdc:			<https://raw.githubusercontent.com/lindahorakova/dcv-public-spending/master/example.ttl#>	.
+@prefix psdc:			<https://raw.githubusercontent.com/lindahorakova/public-spending-data-cube/master/psdc.ttl#>	.
 @prefix skos:			<http://www.w3.org/2004/02/skos/core#> .
 @prefix dc:      		<http://purl.org/dc/terms/> .
 @prefix foaf:			<http://xmlns.com/foaf/0.1/> .
 
 
-<https://raw.githubusercontent.com/lindahorakova/dcv-public-spending/master/example.ttl#>
+<https://raw.githubusercontent.com/lindahorakova/public-spending-data-cube/master/psdc.ttl#>
 	rdf:type owl:Ontology;
 	dc:creator 	"Linda Horakova"^^xsd:string;
 	dc:date		"2015-04-10"^^xsd:date;
