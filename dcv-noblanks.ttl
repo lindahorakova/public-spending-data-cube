@@ -23,8 +23,15 @@
 # Dataset
 
 psdc:Dataset a qb:DataSet;
-	rdfs:label "Platby mezi platci a prijemci v oblasti verejnych vydaju";
-	rdfs:label "Payments between payers and payees in public spending";
+	rdfs:label 	"Platby mezi platci a prijemci v oblasti verejnych vydaju";
+	rdfs:label 	"Payments between payers and payees in public spending";
+	dc:title	"Payments between payers and peyess in public spending";
+	dct:description	"Dataset contains data about public spending payments, including information about payers, payees, amount, currency, date and CPV code."@en;
+	rdfs:comment	"Dataset contains data about public spending payments, including information about payers, payees, amount, currency, date and CPV code."@en;
+	dct:issued		"2015-04-18"^^xsd:date;
+	dct:modified	"2015-04-18"^^xsd:date;
+	dct:subject		"Payments between payers and payees"^^xsd:string;
+	dct:publisher	"Linda Horakova"^^xsd:string;
 	qb:structure psdc:DSD;
 	.
 
