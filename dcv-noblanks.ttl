@@ -47,26 +47,32 @@ psdc:DSD a qb:DataStructureDefinition;
 	
   
 psdc:payerComponent a qb:ComponentSpecification;
+  rdfs:label "Specification of the component describing a payer"@en;
   qb:dimension psdc:payer;	
   qb:order 1.
 
 psdc:payeeComponent a qb:ComponentSpecification;
+	rdfs:label "Specification of the component describing a payee"@en;
 	qb:dimension psdc:payee;	
 	qb:order 2 .
   
 psdc:dateComponent a qb:ComponentSpecification;
+		rdfs:label "Specification of the component describing a date of the payment"@en;
  		qb:dimension psdc:date;	
  		qb:order 3 .
     
 psdc:cpvComponent a qb:ComponentSpecification;
+ rdfs:label "Specification of the component describing a CPV code"@en;
  qb:dimension psdc:cpv;		
  qb:order 4 .
  
-psdc:AmountComponent a qb:ComponentSpecification; 
+psdc:AmountComponent a qb:ComponentSpecification;
+	rdfs:label "Specification of the component describing a amount"@en;
 	qb:measure psdc:amount;
 	qb:componentAttachement psdc:currencyComponent .                        
 
 psdc:currencyComponent a qb:ComponentSpecification;
+		rdfs:label "Specification of the component describing a currency"@en;
 		qb:attribute sdmx-attribute:currency .
 
 # Dimensions, measures	
