@@ -7,25 +7,25 @@
 @prefix sdmx-attribute:	<http://purl.org/linked-data/sdmx/2009/attribute#> .
 @prefix sdmx-measure: 	<http://purl.org/linked-data/sdmx/2009/measure#> .
 @prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
-@prefix psdc:			<https://raw.githubusercontent.com/lindahorakova/public-spending-data-cube/master/psdc.ttl#>	.
+@prefix psdc:			<https://raw.githubusercontent.com/lindahorakova/dcv-public-spending/master/example.ttl#>	.
 @prefix skos:			<http://www.w3.org/2004/02/skos/core#> .
-@prefix dct:      		<http://purl.org/dc/terms/> .
+@prefix dc:      		<http://purl.org/dc/terms/> .
 @prefix foaf:			<http://xmlns.com/foaf/0.1/> .
 
 
-<https://raw.githubusercontent.com/lindahorakova/public-spending-data-cube/master/psdc.ttl#>
+<https://raw.githubusercontent.com/lindahorakova/dcv-public-spending/master/example.ttl#>
 	rdf:type owl:Ontology;
-	dct:creator 	"Linda Horakova"^^xsd:string;
-	dct:date		"2015-04-10"^^xsd:date;
-	dct:description "Ontology describes payments between payers and payees in public spending"^^xsd:string;
+	dc:creator 	"Linda Horakova"^^xsd:string;
+	dc:date		"2015-04-10"^^xsd:date;
+	dc:description "Ontology describes payments between payers and payees in public spending"^^xsd:string;
 	.
 
 # Dataset
 
 psdc:Dataset a qb:DataSet;
-	rdfs:label		"Platby mezi platci a prijemci v oblasti verejnych vydaju"@cs;
-	rdfs:label		"Payments between payers and payees in public spending"@en;
-	dct:title		"Payments between payers and peyess in public spending";
+	rdfs:label 	"Platby mezi platci a prijemci v oblasti verejnych vydaju";
+	rdfs:label 	"Payments between payers and payees in public spending";
+	dc:title	"Payments between payers and peyess in public spending";
 	dct:description	"Dataset contains data about public spending payments, including information about payers, payees, amount, currency, date and CPV code."@en;
 	rdfs:comment	"Dataset contains data about public spending payments, including information about payers, payees, amount, currency, date and CPV code."@en;
 	dct:issued		"2015-04-18"^^xsd:date;
@@ -40,43 +40,42 @@ psdc:Dataset a qb:DataSet;
 psdc:DSD a qb:DataStructureDefinition;
 	rdfs:label "Definice datove struktury pro dataset - Platby mezi platci a prijemci v oblasti verejnych vydaju"@cs;
 	rdfs:label "Definition of data structure for dataset - Payments between payers and payees in public spending"@en;
-	qb:component	psdc:payerComponent, 
-					psdc:payeeComponent, 
-    				psdc:dateComponent,
-    				psdc:cpvComponent,
-    				psdc:AmountComponent,
-    				psdc:currencyComponent;
+	qb:component psdc:payerComponent, psdc:payeeComponent, 
+    psdc:dateComponent, psdc:cpvComponent, psdc:AmountComponent, 
+    psdc:currencyComponent;
     .
-
+	
+  
 psdc:payerComponent a qb:ComponentSpecification;
-	qb:dimension psdc:payer;	
-	qb:order 1; 
-	.
+  rdfs:label "Specification of the component describing a payer"@en;
+  qb:dimension psdc:payer;	
+  qb:order 1.
 
 psdc:payeeComponent a qb:ComponentSpecification;
+	rdfs:label "Specification of the component describing a payee"@en;
 	qb:dimension psdc:payee;	
-	qb:order 2; 
-	.
+	qb:order 2 .
   
 psdc:dateComponent a qb:ComponentSpecification;
- 	qb:dimension psdc:date;	
- 	qb:order 3;
- 	.
+		rdfs:label "Specification of the component describing a date of the payment"@en;
+ 		qb:dimension psdc:date;	
+ 		qb:order 3 .
     
 psdc:cpvComponent a qb:ComponentSpecification;
- 	qb:dimension psdc:cpv;		
- 	qb:order 4;
- 	.
+ rdfs:label "Specification of the component describing a CPV code"@en;
+ qb:dimension psdc:cpv;		
+ qb:order 4 .
  
-psdc:AmountComponent a qb:ComponentSpecification; 
-	qb:measure psdc:amount .                        
+psdc:AmountComponent a qb:ComponentSpecification;
+	rdfs:label "Specification of the component describing a amount"@en;
+	qb:measure psdc:amount;
+	qb:componentAttachement psdc:currencyComponent .                        
 
 psdc:currencyComponent a qb:ComponentSpecification;
-	qb:attribute sdmx-attribute:currency;
-	.
+		rdfs:label "Specification of the component describing a currency"@en;
+		qb:attribute sdmx-attribute:currency .
 
-
-# Dimensions, measures		
+# Dimensions, measures	
 	
 psdc:payer a rdf:Property, qb:DimensionProperty;
 	rdfs:label "Platce"@cs;
@@ -127,7 +126,7 @@ psdc:PaymentAgent a rdfs:Class;
 	rdfs:subClassOf foaf:Agent;
 	.
 	
-# Test observations
+# psdc observations
 
 psdc:o1 a qb:Observation;
     qb:dataSet psdc:Dataset;
