@@ -50,7 +50,7 @@ psdc:payerComponent a qb:ComponentSpecification;
   rdfs:label "Specification of the component describing a payer"@en;
   rdfs:label "Specifikace komponenty popisujici platce"@cs;
   qb:dimension psdc:payer;	
-  qb:order 1.
+  qb:order 1 .
 
 psdc:payeeComponent a qb:ComponentSpecification;
 	rdfs:label "Specification of the component describing a payee"@en;
