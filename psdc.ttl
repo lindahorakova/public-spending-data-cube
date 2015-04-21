@@ -26,12 +26,12 @@ psdc:Dataset a qb:DataSet;
 	rdfs:label 	"Platby Food and Environment Research Agency nad 25 000 liber"@cs;
 	rdfs:label 	"Payments made by Food and Environment Research Agency over 25 000 pounds"@en;
 	dc:title	"Payments between payers and peyess in public spending"@cs;
-	dct:description	"Dataset contains data about public spending payments, made by Food and Environment Research Agency."@en;
+	dc:description	"Dataset contains data about public spending payments, made by Food and Environment Research Agency."@en;
 	rdfs:comment	"Dataset contains data about public spending payments, made by Food and Environment Research Agency."@en;
-	dct:issued		"2015-04-18"^^xsd:date;
-	dct:modified	"2015-04-18"^^xsd:date;
-	dct:subject		"Payments between payers and payees"^^xsd:string;
-	dct:publisher	"Linda Horakova"^^xsd:string;
+	dc:issued		"2015-04-18"^^xsd:date;
+	dc:modified	"2015-04-18"^^xsd:date;
+	dc:subject		"Payments between payers and payees"^^xsd:string;
+	dc:publisher	"Linda Horakova"^^xsd:string;
 	qb:structure psdc:DSD;
 	.
 
