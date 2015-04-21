@@ -23,11 +23,11 @@
 # Dataset
 
 psdc:Dataset a qb:DataSet;
-	rdfs:label 	"Platby mezi platci a prijemci v oblasti verejnych vydaju"@cs;
-	rdfs:label 	"Payments between payers and payees in public spending"@en;
+	rdfs:label 	"Platby Food and Environment Research Agency nad 25 000 liber"@cs;
+	rdfs:label 	"Payments made by Food and Environment Research Agency over 25 000 pounds"@en;
 	dc:title	"Payments between payers and peyess in public spending"@cs;
-	dct:description	"Dataset contains data about public spending payments, including information about payers, payees, amount, currency, date and CPV code."@en;
-	rdfs:comment	"Dataset contains data about public spending payments, including information about payers, payees, amount, currency, date and CPV code."@en;
+	dct:description	"Dataset contains data about public spending payments, made by Food and Environment Research Agency."@en;
+	rdfs:comment	"Dataset contains data about public spending payments, made by Food and Environment Research Agency."@en;
 	dct:issued		"2015-04-18"^^xsd:date;
 	dct:modified	"2015-04-18"^^xsd:date;
 	dct:subject		"Payments between payers and payees"^^xsd:string;
@@ -134,32 +134,88 @@ psdc:PaymentAgent a rdfs:Class;
 	
 # psdc observations
 
-psdc:o1 a qb:Observation;
+psdc:payment1 a qb:Observation;
     qb:dataSet psdc:Dataset;
-    psdc:amount 			1266.45;
-    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/USD>;
-    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/alaska/organizations/57000>;
-    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/alaska/payees/CITY_OF_PALMER>;
-	psdc:date				"2013-04-20";
-	psdc:cpv				<http://purl.org/cpv/2008/code-15555000>;
+    psdc:amount 			166052.36;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/National_Westminster_Bank_Plc>;
+	psdc:date				"2004-12-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-22452000-3>;
     .
 
-psdc:o2 a qb:Observation;
-	qb:dataSet psdc:Dataset;
-    psdc:amount 			1766.45;
-    sdmx-attribute:currency <http://ecb.270a.info/code/1.0/CL_CURRENCY/USD>;
-    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/alaska/organizations/57000>;
-    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/alaska/payees/CITY_OF_PETERSBURG>;
-    psdc:date				"2003-02-03";
-    psdc:cpv				<http://purl.org/cpv/2008/code-35511100-0>;
-	.
+psdc:payment2 a qb:Observation;
+    qb:dataSet psdc:Dataset;
+    psdc:amount 			287549.39;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/Forestry_Commission>;
+	psdc:date				"2005-11-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-79342100-4>;
+    .
+psdc:payment3 a qb:Observation;
+    qb:dataSet psdc:Dataset;
+    psdc:amount 			47459.95;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/Forestry_Commission>;
+	psdc:date				"2005-07-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-79342100-4>;
+    .
 
-psdc:o3 a qb:Observation;
-	qb:dataSet psdc:Dataset;
-    psdc:amount 			2130.5;
-    sdmx-attribute:currency <http://ecb.270a.info/code/1.0/CL_CURRENCY/USD>;
-    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/alaska/organizations/29000>;
-    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/alaska/payees/CITY_OF_PELICAN>;
-    psdc:date				"2013-06-03";
-    psdc:cpv				<http://purl.org/cpv/2008/code-03419000>;
-	.	
+psdc:payment4 a qb:Observation;
+    qb:dataSet psdc:Dataset;
+    psdc:amount 			35250.73;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/Innoventors_Ltd>;
+	psdc:date				"2006-05-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-79342100-4>;
+    .
+psdc:payment5 a qb:Observation;
+    qb:dataSet psdc:Dataset;
+    psdc:amount 			41178.06;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/&apos;veterinary_Laboratories_Agency>;
+	psdc:date				"2005-02-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-79342100-4>;
+    .
+psdc:payment6 a qb:Observation;
+    qb:dataSet psdc:Dataset;
+    psdc:amount 			32556.72;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/Innoventors_Ltd>;
+	psdc:date				"2006-05-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-79342100-4>;
+    .
+psdc:payment7 a qb:Observation;
+    qb:dataSet psdc:Dataset;
+    psdc:amount 			46053.01;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/Ni-co>;
+	psdc:date				"2004-07-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-79342100-4>;
+    .
+
+psdc:payment8 a qb:Observation;
+    qb:dataSet psdc:Dataset;
+    psdc:amount 			52081.01;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/Ip_Pragmatics_Limited>;
+	psdc:date				"2004-09-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-79342100-4>;
+    .
+
+psdc:payment9 a qb:Observation;
+    qb:dataSet psdc:Dataset;
+    psdc:amount 			25000.0;
+    sdmx-attribute:currency	<http://ecb.270a.info/code/1.0/CL_CURRENCY/GBP>;
+    psdc:payer 				<http://publicspending.medialab.ntua.gr/resource/uk/entities/Fera>;
+    psdc:payee 				<http://publicspending.medialab.ntua.gr/resource/uk/suppliers/University_Of_Nottingham>;
+	psdc:date				"2005-02-01";
+	psdc:cpv				<http://purl.org/cpv/2008/code-79342100-4>;
+    .
