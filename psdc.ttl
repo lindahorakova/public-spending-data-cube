@@ -74,7 +74,7 @@ psdc:AmountComponent a qb:ComponentSpecification;
 	rdfs:label "Specification of the component describing a amount"@en;
 	rdfs:label "Specifikace komponenty popisujici castku"@cs;
 	qb:measure psdc:amount;
-	qb:componentAttachement psdc:currencyComponent .                        
+	.                        
 
 psdc:currencyComponent a qb:ComponentSpecification;
 		rdfs:label "Specification of the component describing a currency"@en;
@@ -112,7 +112,7 @@ psdc:cpv	a owl:DatatypeProperty, qb:DimensionProperty;
 	rdfs:label "Spolecny slovnik pro verejne zakazky"@cs;
 	rdfs:subPropertyOf psnet:cpv;
 	rdfs:domain qb:Observation;
-	qb:codeList <http://purl.org/cpv/2008/>;
+	qb:codeList <http://purl.org/cpv/2008/scheme-CPV2008>;
 	rdfs:range skos:Concept;
 	.    
     
